@@ -70,7 +70,6 @@ joblib==0.13.2
 json5==0.8.4
 jsonschema==3.0.1
 keyring==18.0.0
-kiwisolver==1.1.0
 menuinst==1.4.16
 mistune==0.8.4
 mkl-fft==1.0.12

@@ -1,4 +1,4 @@
 lxml
 pandas>=0.21
 requests>=2.3.0
-xlrd==1.2.0
+xlrd>=1.2.0

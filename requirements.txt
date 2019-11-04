@@ -37,7 +37,6 @@ dash-renderer==1.1.0
 dash-table==4.3.0
 dask==2.1.0
 decorator==4.4.0
-defusedxml==0.6.0
 menuinst==1.4.16
 mistune==0.8.4
 mkl-fft==1.0.12

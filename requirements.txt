@@ -40,7 +40,6 @@ decorator==4.4.0
 defusedxml==0.6.0
 distributed==2.1.0
 docutils==0.14
-entrypoints==0.3
 menuinst==1.4.16
 mistune==0.8.4
 mkl-fft==1.0.12

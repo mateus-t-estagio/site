@@ -42,7 +42,6 @@ distributed==2.1.0
 docutils==0.14
 entrypoints==0.3
 et-xmlfile==1.0.1
-fastcache==1.1.0
 menuinst==1.4.16
 mistune==0.8.4
 mkl-fft==1.0.12

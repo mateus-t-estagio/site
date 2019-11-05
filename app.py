@@ -14,7 +14,7 @@ from dash.dependencies import Input, Output
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__,external_stylesheets=external_stylesheets)
-
+server = app.server
 # Leitura dos arquivos em excel
 #Leitura da base de dados para a Produção, tanto em TU quanto em TKU
 Producao=pd.read_excel('Producao.xlsx')

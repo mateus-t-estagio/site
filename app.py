@@ -191,4 +191,4 @@ def numero_acidentes(x_ferr,y_tu):
                 }}
 
 if __name__ == '__main__':
-    app.run()
+    app.run_server()

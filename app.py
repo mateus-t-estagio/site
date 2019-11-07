@@ -1,28 +1,29 @@
 #Juntando a parte do código de produção e de acidentes
 #Dados apresentados na forma gráfica e com opções de MultiSelect
-import pandas as pd
-import xlrd
-import dash
-import numpy as np
-import dash_core_components as dcc 
-import dash_html_components as html
-from dash.dependencies import Input, Output
-import plotly.graph_objs as go
+#coding: UTF-8
 import warnings
-warnings.filterwarnings("ignore")
+
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+import numpy as np
+import pandas as pd
+import plotly.graph_objs as go
 from dash.dependencies import Input, Output
+
+warnings.filterwarnings("ignore")
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__,external_stylesheets=external_stylesheets)
-server = app.server
-# Leitura dos arquivos em excel
+
+# Leitura dos arquivos em csv
 #Leitura da base de dados para a Produção, tanto em TU quanto em TKU
-Producao=pd.read_excel('Producao.xlsx')
+Producao=pd.read_csv('Producao.csv',sep=";")
 #Leitura da base de dados para os Acidentes
-Acidentes = pd.read_excel('Registro_de_Acidentes.xlsx')
+Acidentes = pd.read_csv('Registro_de_Acidentes.csv',sep=";")
 #Leitura da base de dados para o Indice de Acidentes
-Indice_Acidentes = pd.read_excel('Indice de Acidentes.xlsx')
+Indice_Acidentes = pd.read_csv('Indice de Acidentes.csv',sep=";",decimal=",")
 
 # Listas para os callbacks e dropdowns
 Ferrovias = ['EFC', 'EFVM', 'FTC', 'FTL', 'FCA', 'RMN', 'RMP', 'RMO', 'RMS', 'MRS', 'EFPO', 'FNSTN']
@@ -76,7 +77,7 @@ def prod_transporte(x_ferr,y_tu):
         #Filtrar os dados referente a Ferrovia na lista Ferr_Select
         iProducao=Producao['Ferrovia']==val
         Ferrovia_Escolhida=Producao[iProducao]
-        Ferrovia_Escolhida['Mês/Ano']=pd.to_datetime(Ferrovia_Escolhida['Mês/Ano'])
+        Ferrovia_Escolhida['Mes/Ano']=pd.to_datetime(Ferrovia_Escolhida['Mes/Ano'])
         #Salvando no espaço val o DataFrame referente a Ferrovia em Ferr_Select
         Ferrovia_to_Analise[val]=Ferrovia_Escolhida    
     df=pd.DataFrame()
@@ -87,7 +88,7 @@ def prod_transporte(x_ferr,y_tu):
         #Base de dados para a Ferrovia em Ferr_Select 
         df=Ferrovia_to_Analise[val]
         #Lista de dados do eixo x
-        x=df['Mês/Ano']
+        x=df['Mes/Ano']
         #Lista de dados do eixo y
         y=df[y_tu]
         #Traçado referente a cada Ferrovia em Ferr_Select

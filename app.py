@@ -106,7 +106,7 @@ def prod_transporte(x_ferr,y_tu):
             'layout': {
             'title':'Produção de Transporte- Ferrovia(s): ' + z,
             'xaxis':{'title': 'Ano'},
-            'yaxis':{'title': y_tu},
+            'yaxis':{'title': y_tu + 'dividida por 1000'},
             }}   
 
 @app.callback(dash.dependencies.Output('grafico_acidentes','figure'),[

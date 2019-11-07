@@ -1,6 +1,7 @@
 #Juntando a parte do código de produção e de acidentes
 #Dados apresentados na forma gráfica e com opções de MultiSelect
 import pandas as pd
+import xlrd
 import dash
 import numpy as np
 import dash_core_components as dcc 

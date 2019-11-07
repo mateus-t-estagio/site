@@ -42,4 +42,4 @@ traitlets==4.3.2
 urllib3==1.23
 Werkzeug==0.14.1
 wincertstore==0.2
-xlrd=1.1.0
+xlrd==1.1.0

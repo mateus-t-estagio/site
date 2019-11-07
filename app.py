@@ -76,7 +76,7 @@ def prod_transporte(x_ferr,y_tu):
         #Filtrar os dados referente a Ferrovia na lista Ferr_Select
         iProducao=Producao['Ferrovia']==val
         Ferrovia_Escolhida=Producao[iProducao]
-        Ferrovia_Escolhida['Mês/Ano']=pd.to_datetime(Ferrovia_Escolhida['Mês/Ano'])
+        Ferrovia_Escolhida['Mes/Ano']=pd.to_datetime(Ferrovia_Escolhida['Mes/Ano'])
         #Salvando no espaço val o DataFrame referente a Ferrovia em Ferr_Select
         Ferrovia_to_Analise[val]=Ferrovia_Escolhida    
     df=pd.DataFrame()
@@ -87,7 +87,7 @@ def prod_transporte(x_ferr,y_tu):
         #Base de dados para a Ferrovia em Ferr_Select 
         df=Ferrovia_to_Analise[val]
         #Lista de dados do eixo x
-        x=df['Mês/Ano']
+        x=df['Mes/Ano']
         #Lista de dados do eixo y
         y=df[y_tu]
         #Traçado referente a cada Ferrovia em Ferr_Select

@@ -106,10 +106,7 @@ def prod_transporte(x_ferr,y_tu):
             'layout': {
             'title':'Produção de Transporte- Ferrovia(s): ' + z,
             'xaxis':{'title': 'Ano'},
-            if y_tu == 'TU':
-                'yaxis':{'title': y_tu }
-            else:
-                'yaxis':{'title': y_tu + '/10³' },
+            'yaxis':{'title': y_tu + '/10³' },
             }}   
 
 @app.callback(dash.dependencies.Output('grafico_acidentes','figure'),[

@@ -33,7 +33,7 @@ colors={'text':'#7FDBFF'}
 # Definição do layout da página
 app.layout=html.Div([
 
-    html.H1(children='Histórico de Produção de Transporte: ,'style={
+    html.H1(children='Histórico de Produção de Transporte: ',style={
         'textAlign': 'center',
         'color': colors['text']
     }),   

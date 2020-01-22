@@ -32,7 +32,7 @@ esc_aci=['Total de Acidentes','Índice de Acidentes']
 # Definição do layout da página
 app.layout=html.Div([
 
-    html.Label('Histórico de Produção de Transporte: '),
+    html.Label(children='Histórico de Produção de Transporte: '),
     dcc.Dropdown(
                 id='id_dropdown_ferr',
                 options=[{'label': i, 'value': i} for i in Ferrovias],
@@ -45,8 +45,12 @@ app.layout=html.Div([
                 labelStyle={'display': 'inline-block'}
             ),
     html.Div([dcc.Graph(id='grafico_producao')]), 
-  
-    html.Label('Histórico de Acidentes e Índice de Acidentes: '),
+    dcc.Markdown(("""
+                    *A produção de transporte está representada 
+                    em milhões de TU e milhões de TKU.
+                """)),
+
+    html.Label(children='Histórico de Acidentes e Índice de Acidentes: '),
     dcc.Dropdown(
                 id='id_dropdown_acidente',
                 options=[{'label': i, 'value': i} for i in Ferrovias],
@@ -58,12 +62,7 @@ app.layout=html.Div([
                 value='Total de Acidentes',
                 labelStyle={'display': 'inline-block'}),
     
-            html.Div([dcc.Graph(id='grafico_acidentes')]),
-    dcc.Markdown(("""
-                *A produção de transporte está representada 
-                em milhões de TU e milhões de TKU.
-            """)),
-
+            html.Div([dcc.Graph(id='grafico_acidentes')]),              
 ])
 # Calbacks para os gráficos
 @app.callback(dash.dependencies.Output('grafico_producao','figure'),[
@@ -112,7 +111,7 @@ def prod_transporte(x_ferr,y_tu):
             'layout': {
             'title':'Produção de Transporte - Ferrovia(s): ' + z,
             'xaxis':{'title': 'Ano'},
-            'yaxis':{'title': y_tu + '*10^6' },
+            'yaxis':{'title': y_tu + '*10⁶' },
             }}   
 
 @app.callback(dash.dependencies.Output('grafico_acidentes','figure'),[

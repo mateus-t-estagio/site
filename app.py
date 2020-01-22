@@ -32,7 +32,7 @@ esc_aci=['Total de Acidentes','Índice de Acidentes']
 # Definição do layout da página
 app.layout=html.Div([
 
-    html.H1(children='Histórico de Produção de Transporte: 'style={
+    html.Label(children='Histórico de Produção de Transporte: 'style={
         'textAlign': 'center',
         'color': colors['text']
     }),   

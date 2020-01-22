@@ -28,15 +28,20 @@ Indice_Acidentes = pd.read_excel('Indice de Acidentes.xlsx')
 Ferrovias = ['EFC', 'EFVM', 'FTC', 'FTL', 'FCA', 'RMN', 'RMP', 'RMO', 'RMS', 'MRS', 'EFPO', 'FNSTN']
 TU_TKU = ['TU', 'TKU']
 esc_aci=['Total de Acidentes','Índice de Acidentes']
-colors={'text':'#7FDBFF'}
+colors={'text':'#000000'}
 
 # Definição do layout da página
 app.layout=html.Div([
-
-    html.H1(children='Histórico de Produção de Transporte: ',style={
+    
+    html.H1(children='Anuário Estatístico',style={
         'textAlign': 'center',
-        'color': colors['text']
-    }),   
+        'color': colors['text']}),
+
+    html.H2(children='Histórico de Produção de Transporte ',style={
+        'textAlign': 'center',
+        'color': colors['text']}),
+
+    html.Label(children='Ferrovias:'),
     dcc.Dropdown(
                 id='id_dropdown_ferr',
                 options=[{'label': i, 'value': i} for i in Ferrovias],
@@ -50,10 +55,18 @@ app.layout=html.Div([
             ),
     html.Div([dcc.Graph(id='grafico_producao')]), 
     dcc.Markdown(("""
-                    *A produção de transporte está representada 
-                    em milhões de TU e milhões de TKU.
+                    *A produção de transporte está representada em milhões de TU e milhões de TKU.
+                
+                
+                
+                
                 """)),
-    html.Label(children='Histórico de Acidentes e Índice de Acidentes: '),
+
+    html.H2(children='Histórico de Acidentes e Índice de Acidentes',style={
+        'textAlign': 'center',
+        'color': colors['text']}),            
+
+    html.Label(children='Ferrovias:'),
     dcc.Dropdown(
                 id='id_dropdown_acidente',
                 options=[{'label': i, 'value': i} for i in Ferrovias],

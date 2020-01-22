@@ -59,6 +59,10 @@ app.layout=html.Div([
                 labelStyle={'display': 'inline-block'}),
     
             html.Div([dcc.Graph(id='grafico_acidentes')]),
+    dcc.Markdown(d("""
+                *A produção de transporte está representada 
+                em milhões de TU e milhões de TKU.
+            """)),
 
 ])
 # Calbacks para os gráficos
@@ -67,6 +71,8 @@ app.layout=html.Div([
         dash.dependencies.Input('id_radio_TON','value')
     ])
 def prod_transporte(x_ferr,y_tu):
+    
+
     #Criando uma lista com as ferrovias escolhidas no dropdown 
     Ferr_Select=x_ferr
     #Criando dicionário onde serão salvos os DataFrames referentes a cada Ferrovia   
@@ -104,9 +110,9 @@ def prod_transporte(x_ferr,y_tu):
     return {
             'data': data,
             'layout': {
-            'title':'Produção de Transporte- Ferrovia(s): ' + z,
+            'title':'Produção de Transporte - Ferrovia(s): ' + z,
             'xaxis':{'title': 'Ano'},
-            'yaxis':{'title': y_tu + '/10³' },
+            'yaxis':{'title': y_tu + '*10^6' },
             }}   
 
 @app.callback(dash.dependencies.Output('grafico_acidentes','figure'),[

@@ -28,6 +28,7 @@ Indice_Acidentes = pd.read_excel('Indice de Acidentes.xlsx')
 Ferrovias = ['EFC', 'EFVM', 'FTC', 'FTL', 'FCA', 'RMN', 'RMP', 'RMO', 'RMS', 'MRS', 'EFPO', 'FNSTN']
 TU_TKU = ['TU', 'TKU']
 esc_aci=['Total de Acidentes','Índice de Acidentes']
+colors={'text':'#7FDBFF'}
 
 # Definição do layout da página
 app.layout=html.Div([

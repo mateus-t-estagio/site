@@ -59,7 +59,7 @@ app.layout=html.Div([
                 labelStyle={'display': 'inline-block'}),
     
             html.Div([dcc.Graph(id='grafico_acidentes')]),
-    dcc.Markdown(d("""
+    dcc.Markdown(("""
                 *A produção de transporte está representada 
                 em milhões de TU e milhões de TKU.
             """)),

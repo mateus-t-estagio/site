@@ -32,7 +32,7 @@ esc_aci=['Total de Acidentes','Índice de Acidentes']
 # Definição do layout da página
 app.layout=html.Div([
 
-    html.Label(children='Histórico de Produção de Transporte: 'style={
+    html.H1(children='Histórico de Produção de Transporte: ,'style={
         'textAlign': 'center',
         'color': colors['text']
     }),   
@@ -52,7 +52,6 @@ app.layout=html.Div([
                     *A produção de transporte está representada 
                     em milhões de TU e milhões de TKU.
                 """)),
-
     html.Label(children='Histórico de Acidentes e Índice de Acidentes: '),
     dcc.Dropdown(
                 id='id_dropdown_acidente',

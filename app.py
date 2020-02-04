@@ -50,14 +50,6 @@ app.layout=html.Div([
                 labelStyle={'display': 'inline-block'}
             ),
     html.Div([dcc.Graph(id='grafico_producao')]), 
-    dcc.Markdown(("""
-                    *A produção de transporte está representada 
-                    em milhões de TU e milhões de TKU.
-                
-                
-                
-                
-                """)),
 
     html.H2(children='Segurança',style={
         'textAlign': 'center',
@@ -76,15 +68,7 @@ app.layout=html.Div([
                 labelStyle={'display': 'inline-block'}),
     
             html.Div([dcc.Graph(id='grafico_acidentes')]),
-    dcc.Markdown(("""
-                    *O número de acidentes foi composto, de 2006 a
-                    2010, a partir da consulta SIADE do SAFF e, de
-                    2011 a 2019, a partir da cosulta RAAF do SAFF.
-                
-                
-                
-                
-                """)),                          
+                        
 ])
 # Calbacks para os gráficos
 @app.callback(dash.dependencies.Output('grafico_producao','figure'),[

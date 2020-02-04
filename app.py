@@ -93,6 +93,10 @@ app.layout=html.Div([
     ])
 def prod_transporte(x_ferr,y_tu):
     
+    if y_tu = 'TU':
+        unidade = 'Milhões de '
+    else:
+        unidade = 'Bilhões de '
 
     #Criando uma lista com as ferrovias escolhidas no dropdown 
     Ferr_Select=x_ferr
@@ -133,7 +137,7 @@ def prod_transporte(x_ferr,y_tu):
             'layout': {
             'title':'Produção de Transporte - Ferrovia: ' + z,
             'xaxis':{'title': 'Ano'},
-            'yaxis':{'title': y_tu + '*10⁶' },
+            'yaxis':{'title': unidade + y_tu },
             }}   
 
 @app.callback(dash.dependencies.Output('grafico_acidentes','figure'),[

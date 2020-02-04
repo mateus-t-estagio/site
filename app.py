@@ -32,12 +32,8 @@ colors={'text':'#000000'}
 
 # Definição do layout da página
 app.layout=html.Div([
-    
-    html.H1(children='Anuário Estatístico',style={
-        'textAlign': 'center',
-        'color': colors['text']}),
 
-    html.H2(children='Histórico de Produção de Transporte ',style={
+    html.H2(children='Produção de Transporte ',style={
         'textAlign': 'center',
         'color': colors['text']}),
 
@@ -55,14 +51,15 @@ app.layout=html.Div([
             ),
     html.Div([dcc.Graph(id='grafico_producao')]), 
     dcc.Markdown(("""
-                    *A produção de transporte está representada em milhões de TU e milhões de TKU.
+                    *A produção de transporte está representada 
+                    em milhões de TU e milhões de TKU.
                 
                 
                 
                 
                 """)),
 
-    html.H2(children='Histórico de Acidentes e Índice de Acidentes',style={
+    html.H2(children='Segurança',style={
         'textAlign': 'center',
         'color': colors['text']}),            
 
@@ -78,7 +75,16 @@ app.layout=html.Div([
                 value='Total de Acidentes',
                 labelStyle={'display': 'inline-block'}),
     
-            html.Div([dcc.Graph(id='grafico_acidentes')]),              
+            html.Div([dcc.Graph(id='grafico_acidentes')]),
+    dcc.Markdown(("""
+                    *O número de acidentes foi composto, de 2006 a
+                    2010, a partir da consulta SIADE do SAFF e, de
+                    2011 a 2019, a partir da cosulta RAAF do SAFF.
+                
+                
+                
+                
+                """)),                          
 ])
 # Calbacks para os gráficos
 @app.callback(dash.dependencies.Output('grafico_producao','figure'),[
@@ -125,7 +131,7 @@ def prod_transporte(x_ferr,y_tu):
     return {
             'data': data,
             'layout': {
-            'title':'Produção de Transporte - Ferrovia(s): ' + z,
+            'title':'Produção de Transporte - Ferrovia: ' + z,
             'xaxis':{'title': 'Ano'},
             'yaxis':{'title': y_tu + '*10⁶' },
             }}   
@@ -171,7 +177,7 @@ def numero_acidentes(x_ferr,y_tu):
         return {
                 'data': data,
                 'layout': {
-                'title':'Acidentes - Ferrovia(s): '+ z,
+                'title':'Número de Acidentes - Ferrovia: '+ z,
                 'xaxis':{'title': 'Ano'},
                 'yaxis':{'title': 'N° de Acidentes'},
                 }}
@@ -207,7 +213,7 @@ def numero_acidentes(x_ferr,y_tu):
         return {
                 'data': data,
                 'layout': {
-                'title':'Índice de Acidentes - Ferrovia(s): ' + z,
+                'title':'Índice de Acidentes - Ferrovia: ' + z,
                 'xaxis':{'title': 'Ano'},
                 'yaxis':{'title': 'Indice de Acidentes'},
                 }}

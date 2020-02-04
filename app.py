@@ -93,7 +93,7 @@ app.layout=html.Div([
     ])
 def prod_transporte(x_ferr,y_tu):
     
-    if y_tu = 'TU':
+    if y_tu == 'TU':
         unidade = 'Milhões de '
     else:
         unidade = 'Bilhões de '
